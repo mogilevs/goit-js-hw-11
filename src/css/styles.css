@@ -1,9 +1,13 @@
 body {
+  font-family: 'Montserrat', sans-serif;
 }
-
+ul {
+  list-style: none;
+}
 .container {
   margin: 0 auto;
-  padding: 36px 156px;
+  padding: 36px 0;
+  width: 1128px;
 }
 .form {
   margin: 0 auto;
@@ -11,6 +15,7 @@ body {
   gap: 8px;
   align-items: center;
   width: 371px;
+  margin-bottom: 32px;
 }
 .input {
   box-sizing: border-box;
@@ -20,24 +25,100 @@ body {
   height: 40px;
   outline: none;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.04em;
   color: #808080;
   padding: 8px 16px;
 }
+.input:hover {
+  border-color: #000;
+}
 
+.input:focus-within {
+  border-color: #4e75ff;
+}
 .button {
   border-radius: 8px;
   padding: 8px 16px;
   width: 91px;
   height: 40px;
   background: #4e75ff;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.04em;
   color: #fff;
+}
+.button:hover {
+  background: #6c8cff;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.item {
+  width: calc((100% - 48px) / 3);
+  position: relative;
+}
+.image {
+  width: 360px;
+  height: 200px;
+  object-fit: cover;
+}
+.item-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0;
+  position: absolute;
+  bottom: 0;
+  border-bottom: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #808080;
+  width: 360px;
+  height: 48px;
+  background: #fff;
+}
+.item-list-item:first-child {
+  margin-right: 28px;
+}
+.item-list-item:nth-child(2) {
+  margin-right: 27px;
+}
+.item-list-item:nth-child(3) {
+  margin-right: 32px;
+}
+.title {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  text-align: center;
+}
+.value {
+  font-size: 12px;
+  line-height: 200%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  text-align: center;
+}
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+}
+.toast {
+  margin: auto;
+  width: 432px;
+  height: 88px;
+  padding: 20px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.03em;
+  color: #fafafb;
+  background-color: #ef4040;
 }
