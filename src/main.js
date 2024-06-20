@@ -38,7 +38,7 @@ function searchHandler(evt) {
                 downloads,
               }) => {
                 return `<li class="item">
-          <img class="image" src="${webformatURL}" alt="${tags}" />
+          <a href="${largeImageURL}"><img class="image" src="${webformatURL}" alt="${tags}" /></a>
           <ul class="item-list">
             <li class="item-list-item">
               <h3 class="title">Likes</h3>
@@ -63,6 +63,14 @@ function searchHandler(evt) {
             .join('');
 
           list.insertAdjacentHTML('beforeend', markup);
+          const lightbox = new SimpleLightbox('.list a', {
+	captions: true,
+	captionType: 'attr',
+	captionsData: 'alt',
+	captionPosition: 'bottom',
+	captionDelay: 250
+          }); 
+          lightbox.refresh();
         } else {
           iziToast.show({
             class: 'toast',
@@ -70,10 +78,7 @@ function searchHandler(evt) {
             icon: 'icon',
             iconUrl: err,
             iconColor: 'white',
-            // backgroundColor: 'red',
-            // messageColor: 'white',
-            // messageSize: '16px',
-            // maxWidth: '432px',
+            messageColor: 'white',
             message: `Sorry, there are no images matching your search query. Please try again!`,
           });
         }
@@ -84,3 +89,5 @@ function searchHandler(evt) {
     form.reset();
   }
 }
+
+
