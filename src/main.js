@@ -51,6 +51,17 @@ function searchHandler(evt) {
         }
       })
       .catch(error => {
+        iziToast.show({
+          class: 'toast',
+          position: 'topRight',
+          icon: 'icon',
+          iconUrl: err,
+          iconColor: 'white',
+          messageColor: 'white',
+          title: 'Error',
+          titleColor: 'white',
+          message: `Please try again!`,
+        });
         if (error.response) {
           console.error('Server error:', error.response.status);
         } else if (error.request) {
