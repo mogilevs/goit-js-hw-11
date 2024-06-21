@@ -14,9 +14,9 @@ form.addEventListener('submit', searchHandler);
 
 function searchHandler(evt) {
   list.innerHTML = '';
-  const text = evt.target.elements.input.value;
+  const text = evt.target.elements.input.value.trim();
   evt.preventDefault();
-  if (text !== '') {
+  if (text != 0) {
     form.insertAdjacentHTML('afterend', '<span class="loader"></span>');
     const loader = document.querySelector('.loader');
     httpRequest(key, text)
@@ -51,7 +51,13 @@ function searchHandler(evt) {
         }
       })
       .catch(error => {
-        console.log(error);
+        if (error.response) {
+          console.error('Server error:', error.response.status);
+        } else if (error.request) {
+          console.error('No response from server');
+        } else {
+          console.error('Unknown error:', error.message);
+        }
       })
       .finally(() => (loader.style.display = 'none'));
     form.reset();
